@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://github.com/sothmann/typescript-gradle-plugin/raw/mavenrepo/' // for typescript-gradle-plugin
+        }
+        jcenter() // for gradle-watch-plugin
+    }
+    dependencies {
+		// for building TypeScript https://github.com/sothmann/typescript-gradle-plugin
+        classpath 'de.richsource.gradle.plugins:typescript-gradle-plugin:1.0.6'
+	    // for watching changes in file system and automatically rebuilding (for gradle for example) - https://github.com/bluepapa32/gradle-watch-plugin
+	    classpath 'com.bluepapa32:gradle-watch-plugin:0.1.5'
+    }
+}
+
+ext {
+	typeScriptSrc = "src/main/ts"
+}
+
+apply plugin: "typescript" // from typescript-gradle-plugin
+apply plugin: 'com.bluepapa32.watch' // from gradle-watch-plugin
+
+compileTypeScript {
+  // see https://github.com/sothmann/typescript-gradle-plugin
+  sourcemap = false
+  source = file(typeScriptSrc)
+  outputDir = file("build/js")
+  target = "ES5" // default is ES3 -
+  // es6-classes.ts: Accessors are only available when targeting ECMAScript 5 and higher
+  // Tagged templates are only available when targeting ECMAScript 6 and higher
+
+  // module = "AMD" // require(AMD), node(COMMONJS)
+}
+
+watch {
+	tasks.watch.description = "Watches changes of TypeScript sources and compiles TypeScript to JS"
+
+    typeScript {
+        files files(typeScriptSrc)
+        tasks 'compileTypeScript'
+    }
+
+}
+tasks.watch.dependsOn compileTypeScript
+// hooking compileTypeScript to java build process
+// processResources.dependsOn compileTypeScript

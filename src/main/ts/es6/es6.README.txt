@@ -1,0 +1,5 @@
+ES6 samples from
+https://github.com/lukehoban/es6features
+
+See what ES6 features are implemented in specific TS version and what are planned for future:
+https://github.com/Microsoft/TypeScript/wiki/Roadmap
