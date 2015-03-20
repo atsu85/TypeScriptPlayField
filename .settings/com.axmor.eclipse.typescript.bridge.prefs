@@ -1,0 +1,12 @@
+declaration=false
+eclipse.preferences.version=1
+mapRoot=
+module=default
+noImplicitAny=false
+noResolve=false
+removeComments=false
+source=src/main/ts
+sourceMap=false
+target=build/jsFromTypEcs
+targetRelativePathBasedOnSource=false
+targetVersion=ES6
