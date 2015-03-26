@@ -1,4 +1,4 @@
-This TypeScript demo project written for presentation.
+This TypeScript demo project written for presentation (presentation-TypeScript.pptx)
 
 Getting started:
 1) Install node
