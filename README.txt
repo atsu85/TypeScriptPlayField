@@ -1,4 +1,4 @@
-This TypeScript demo project written for presentation (presentation-TypeScript.pptx)
+This TypeScript demo project written for presentation (presentation-TypeScript.pptx also available online: http://goo.gl/uzUhrG )
 
 Getting started:
 1) Install node
