@@ -1,8 +1,9 @@
+// could import all types (tsd.d.ts references other type declarations)...
 // /// <reference path="../../typings/tsd.d.ts" />
+// ... or import just ones that this file really uses
 /// <reference path="../typings/angularjs/angular.d.ts" />
 /// <reference path="../typings/toastr/toastr.d.ts" />
-// /// <reference path="../app/blocks/exception/exception-handler.provider.d.ts" />
-//(function() {
+(function() {
     'use strict';
 
     var core:ng.IModule = angular.module('app.core');
@@ -25,7 +26,7 @@
     core.config(configure);
     
     /* @ngInject */
-    function configure ($compileProvider: ng.ICompileProvider, $logProvider: ng.ILogProvider, routerHelperProvider, exceptionHandlerProvider /*: ttTypes.ExceptionHandlerProvider*/) {
+    function configure ($compileProvider: ng.ICompileProvider, $logProvider: ng.ILogProvider, routerHelperProvider, exceptionHandlerProvider) {
 
         $compileProvider.debugInfoEnabled(false);
 
@@ -51,4 +52,4 @@
             });
         }
     }
-//})();
+})();

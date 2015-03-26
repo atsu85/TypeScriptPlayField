@@ -90,7 +90,7 @@ interface IFun {
 
 /** anonymous function assigned to variable */
 //var anonymousFunction: (elem: string, elems: string[]) => string =
-//	(elem, elems) => { // same, but shorter than:
+//	(elem, elems) => { // lambda syntax for function ~same, but shorter than:
 var anonymousFunction: IFun =
 	function(elem, elems) {
         return "some string";
